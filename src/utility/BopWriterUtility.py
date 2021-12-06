@@ -312,11 +312,16 @@ class BopWriterUtility:
             shutil.copyfile(rgb_output['path'] % frame_id, rgb_fpath)
 
             # Load the resulting dist image.
-            dist_output = Utility.find_registered_output_by_key("distance")
-            if dist_output is None:
-                raise Exception("Distance image has not been rendered.")
-            distance = WriterUtility.load_output_file(Utility.resolve_path(dist_output['path'] % frame_id))
-            depth = PostProcessingUtility.dist2depth(distance)
+            # dist_output = Utility.find_registered_output_by_key("distance")
+            # if dist_output is None:
+            #     raise Exception("Distance image has not been rendered.")
+            # distance = WriterUtility.load_output_file(Utility.resolve_path(dist_output['path'] % frame_id))
+            # depth = PostProcessingUtility.dist2depth(distance)
+            depth_output = Utility.find_registered_output_by_key("depth")
+            if depth_output is None:
+                raise Exception("Depth image has not been rendered.")
+            depth = WriterUtility.load_output_file(Utility.resolve_path(depth_output['path'] % frame_id))
+            depth = PostProcessingUtility.trim_redundant_channels(depth)
 
             # Scale the depth to retain a higher precision (the depth is saved
             # as a 16-bit PNG image with range 0-65535).

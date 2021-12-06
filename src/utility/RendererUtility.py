@@ -243,7 +243,7 @@ class RendererUtility:
         # map the values 0-1 to range distance_start to distance_range
         mapper_node.inputs['To Min'].default_value = distance_start
         mapper_node.inputs['To Max'].default_value = distance_start + distance_range
-        final_output = mapper_node.outputs['Value']
+        final_output = mapper_node.outputs['Value'] 
 
         # Build output node
         output_file = tree.nodes.new("CompositorNodeOutputFile")

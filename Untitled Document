@@ -1,0 +1,2 @@
+python run.py /data00/simgrasp/blender_config.yaml /data00/simgrasp/blender_models/train lm bop_toolkit/ resources/cctextures /data00/simgrasp/data
+

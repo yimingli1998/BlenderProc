@@ -3,7 +3,7 @@ import sys
 import os
 
 # this sets the amount of runs, which are performed
-amount_of_runs = 5
+amount_of_runs = 2
 
 # set the folder in which the run.py is located
 rerun_folder = os.path.abspath(os.path.dirname(__file__))
